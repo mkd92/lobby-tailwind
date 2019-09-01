@@ -1,6 +1,5 @@
 <template>   
-<div class="absolute pin-l pin-t h-screen w-full flex items-center justify-center bg-tran">
-<div class="bg-grey-lighter min-h-screen flex flex-col ">
+<div class="bg-grey-lighter min-h-screen flex flex-col">
             <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
                 <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
                     <h1 class="mb-8 text-3xl text-center">Sign in</h1>
@@ -47,16 +46,11 @@
 
             </div>
         </div>
-
-</div>
 </template>
 
 <style lang="scss" scoped>
 .pop{
 height: 400px;
-}
-.bg-tran {
-  background-color: rgba(0, 0, 0, 0.6)
 }
 .container {
   margin: 0 auto;

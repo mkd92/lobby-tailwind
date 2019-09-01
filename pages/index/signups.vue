@@ -51,6 +51,12 @@
 </div>
 </template>
 
+<script>
+export default {
+    name: 'Signups'
+}
+</script>
+
 <style lang="scss" scoped>
 .pop{
 height: 400px;

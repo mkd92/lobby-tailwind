@@ -3,6 +3,22 @@ export default {
   /*
    ** Headers of the page
    */
+  // router: {
+  //   extendRoutes(routes, resolve) {
+  //     const indexIndex = routes.findIndex(route.name === 'index')
+  //     let index = routes[indexIndex]
+  //     routes[index] = {
+  //       ...routes[index],
+  //       components: {
+  //         default: routes[index].component,
+  //         top: resolve(__dirname, 'components/mainTop.vue')
+  //       },
+  //       chunkNames: {
+  //         top: 'components/mainTop'
+  //       }
+  //     }
+  //   }
+  // },
   head: {
     title: process.env.npm_package_name || '',
     meta: [

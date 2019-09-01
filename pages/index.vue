@@ -1,43 +1,64 @@
 <template>
   <div class="">
 
-  <div class="flex flex-col">
-    <Nav />
-    <div class="container bg-blue-100">
-      <div>
-        <logo />
-        <h1 class="title mt-10">
-          A PROPERTY MANAGEMENT TOOL
-        </h1>
-        <h2 class="subtitle">
-          mkd92's hobby project
-        </h2>
-        <a href="#" @click="isOpen = !isOpen" class="inline-block company font-semibold text-sm px-4 py-2 leading-none border rounded text-grey-800 border-gray-800 hover:border-transparent hover:text-blue-100 hover:bg-gray-800 mt-4 lg:mt-0">Sign Up</a>
+    <div class="flex flex-col">
+      <Nav />
+      <div class="container min-h-screen flex justify-center items-center text-center mx-auto bg-blue-100">
+        <div>
+          <logo />
+          <h1 class="title mt-10">
+            A PROPERTY MANAGEMENT TOOL
+          </h1>
+          <h2 class="subtitle">
+            mkd92's hobby project
+          </h2>
+        </div>
       </div>
+    <div v-if="isSignupOpen" @click.self="invertIsSignupOpen" class="overlay absolute pin-l pin-t h-screen w-full flex items-center justify-center">
+      <SignupForm/>
     </div>
-    <div v-if="isOpen" @click.self="isOpen = false" class="overlay absolute pin-l pin-t h-screen w-full flex items-center justify-center">
-      <div class="bg-white rounded w-1/3">
-        <h2>hello</h2>
-        <p>hi</p>
-      </div>
+    <div v-if="isSigninOpen" @click.self="invertIsSigninOpen" class="overlay absolute pin-l pin-t h-screen w-full flex items-center justify-center">
+      <SigninForm/>
     </div>
+    </div>
+    <NuxtLink to="/signup">
+          Section
+        </NuxtLink> 
   </div>
-</div>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
 import Nav from "~/components/Nav"
+import SignupForm from "~/components/SignupForm"
+import SigninForm from "~/components/SigninForm"
 export default {
-  data: function() {
-    return {
-      isOpen: false,
-    }
-  },
+  // data: function() {
+    // return {
+    //   isOpen: false,
+    // }
+  // },
   components: {
-
+    SigninForm,  
+    SignupForm,
     Logo,
     Nav
+  },
+  computed:{
+    isSigninOpen(){
+      return this.$store.state.isSigninOpen
+    },
+    isSignupOpen(){
+      return this.$store.state.isSignupOpen
+    },
+  },
+  methods:{
+    invertIsSignupOpen(){
+          this.$store.commit('invertIsSignupOpen')
+    },
+    invertIsSigninOpen(){
+          this.$store.commit('invertIsSigninOpen')
+    }
   }
 }
 </script>
@@ -49,17 +70,7 @@ export default {
 background-color: rgba(0, 0, 0, .6);
 }
 
-.bg-pop{
-  background-color: rgba(0, 0, 0, .6);
-}
 
-.pop{
-height: 400px;
-}
-
-.container {
-  @apply min-h-screen flex justify-center items-center text-center mx-auto;
-}
 
 .container {
   margin: 0 auto;
