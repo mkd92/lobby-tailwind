@@ -9,8 +9,12 @@
       <span class="font-sans font-bold company text-2xl tracking-tight pt-2">Lobby</span>
     </div>
     <div>
-        <button @click="invertIsSigninOpen" class="inline-block company font-semibold text-sm px-4 py-2 leading-none border rounded text-grey-800 border-gray-800 hover:border-transparent hover:text-blue-100 hover:bg-gray-800 mt-4 lg:mt-0">Sign in</button>
-        <button @click="invertIsSignupOpen" class="inline-block company font-semibold text-sm px-4 py-2 leading-none border rounded text-grey-800 border-gray-800 hover:border-transparent hover:text-blue-100 hover:bg-gray-800 mt-4 lg:mt-0">Sign Up</button>
+      <nuxt-link to="/signin">
+        <button  class="inline-block company font-semibold text-sm px-4 py-2 leading-none border rounded text-grey-800 border-gray-800 hover:border-transparent hover:text-blue-100 hover:bg-gray-800 mt-4 lg:mt-0">Sign in</button>
+      </nuxt-link>
+      <nuxt-link to="/signup">
+        <button  class="inline-block company font-semibold text-sm px-4 py-2 leading-none border rounded text-grey-800 border-gray-800 hover:border-transparent hover:text-blue-100 hover:bg-gray-800 mt-4 lg:mt-0">Sign Up</button>
+      </nuxt-link>
       
     </div>
   </nav>
@@ -23,14 +27,7 @@ export default {
   }),
 
   
-  methods:{
-    invertIsSignupOpen(){
-          this.$store.commit('invertIsSignupOpen')
-    },
-    invertIsSigninOpen(){
-          this.$store.commit('invertIsSigninOpen')
-    }
-  }
+  
 }
 </script>
 <style lang="scss" scoped>

@@ -1,63 +1,60 @@
-<template>   
-<div class="absolute pin-l pin-t h-screen w-full flex items-center justify-center bg-tran">
-<div class="bg-grey-lighter min-h-screen flex flex-col ">
-            <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-                <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
-                    <h1 class="mb-8 text-3xl text-center">Sign in</h1>
-                    
-
-                    <input 
-                        type="text"
-                        class="block border border-grey-light w-full p-3 rounded mb-4"
-                        name="email"
-                        placeholder="Email" />
-
-                    <input 
-                        type="password"
-                        class="block border border-grey-light w-full p-3 rounded mb-4"
-                        name="password"
-                        placeholder="Password" />
-                    
-                    <button
-                        type="submit"
-                        class="w-full text-center py-3 rounded bg-green-500 text-white hover:bg-green-dark focus:outline-none my-1"
-                    >Sign in</button>
-
-                    <div class="text-center text-sm text-grey-dark mt-4">
-                        By signing in, you agree to the 
-                        <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
-                            Terms of Service
-                        </a> and 
-                        <a class="no-underline border-b border-grey-dark text-grey-dark" href="#">
-                            Privacy Policy
-                        </a>
-                    </div>
-                <div class="text-grey-dark mt-6">
-                    Don't have an account? 
-                    <a class="no-underline border-b border-blue text-blue" href="../login/">
-                        Sign up
-                    </a>
-                </div>
-                <div class="text-grey-dark mt-2">
-                    <a class="no-underline border-b border-blue text-blue" href="../login/">
-                        Forgot Password?
-                    </a>
-                </div>
-                </div>
-
-            </div>
+<template>
+  <div class="">
+      <nuxt-child/>
+    <div class="flex flex-col">
+      <Nav />
+      <div class="container min-h-screen flex justify-center items-center text-center mx-auto bg-blue-100">
+        <div>
+          <logo />
+          <h1 class="title mt-10">
+            A PROPERTY MANAGEMENT TOOL
+          </h1>
+          <h2 class="subtitle">
+            mkd92's hobby project
+          </h2>
         </div>
-
-</div>
+      </div>
+    <!-- <div v-if="isSignupOpen" @click.self="invertIsSignupOpen" class="overlay absolute pin-l pin-t h-screen w-full flex items-center justify-center">
+      
+    </div>
+    <div v-if="isSigninOpen" @click.self="invertIsSigninOpen" class="overlay absolute pin-l pin-t h-screen w-full flex items-center justify-center">
+      
+    </div> -->
+    </div>
+    <NuxtLink to="/signup">
+          Section
+        </NuxtLink> 
+  </div>
 </template>
 
+<script>
+import Logo from '~/components/Logo.vue'
+import Nav from "~/components/Nav"
+
+export default {
+  // data: function() {
+    // return {
+    //   isOpen: false,
+    // }
+  // },
+  components: {
+    
+    Logo,
+    Nav
+  },
+  
+}
+</script>
+
+
 <style lang="scss" scoped>
-.pop{
-height: 400px;
+
+.overlay{
+background-color: rgba(0, 0, 0, .6);
 }
-.bg-tran {
-  background-color: rgba(0, 0, 0, 0.6)
-}
+
+
+
 .container {
   margin: 0 auto;
   min-height: 100vh;
@@ -65,5 +62,27 @@ height: 400px;
   justify-content: center;
   align-items: center;
   text-align: center;
+}
+
+.title {
+  font-family: 'Quicksand', 'Source Sans Pro', -apple-system, BlinkMacSystemFont,
+    'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+  display: block;
+  font-weight: 300;
+  font-size: 50px;
+  color: #35495e;
+  letter-spacing: 1px;
+}
+
+.subtitle {
+  font-weight: 300;
+  font-size: 42px;
+  color: #526488;
+  word-spacing: 5px;
+  padding-bottom: 15px;
+}
+
+.links {
+  padding-top: 15px;
 }
 </style>

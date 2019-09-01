@@ -21,17 +21,13 @@
       <SigninForm/>
     </div>
     </div>
-    <NuxtLink to="/signup">
-          Section
-        </NuxtLink> 
   </div>
 </template>
 
 <script>
 import Logo from '~/components/Logo.vue'
 import Nav from "~/components/Nav"
-import SignupForm from "~/components/SignupForm"
-import SigninForm from "~/components/SigninForm"
+
 export default {
   // data: function() {
     // return {
@@ -39,26 +35,14 @@ export default {
     // }
   // },
   components: {
-    SigninForm,  
-    SignupForm,
     Logo,
     Nav
   },
   computed:{
-    isSigninOpen(){
-      return this.$store.state.isSigninOpen
-    },
-    isSignupOpen(){
-      return this.$store.state.isSignupOpen
-    },
+    
   },
   methods:{
-    invertIsSignupOpen(){
-          this.$store.commit('invertIsSignupOpen')
-    },
-    invertIsSigninOpen(){
-          this.$store.commit('invertIsSigninOpen')
-    }
+    
   }
 }
 </script>
