@@ -14,12 +14,7 @@
           </h2>
         </div>
       </div>
-    <!-- <div v-if="isSignupOpen" @click.self="invertIsSignupOpen" class="overlay absolute pin-l pin-t h-screen w-full flex items-center justify-center">
-      
-    </div>
-    <div v-if="isSigninOpen" @click.self="invertIsSigninOpen" class="overlay absolute pin-l pin-t h-screen w-full flex items-center justify-center">
-      
-    </div> -->
+    
     </div>
     <NuxtLink to="/signup">
           Section
@@ -31,11 +26,7 @@
 import Logo from '~/components/Logo.vue'
 import Nav from "~/components/Nav"
 export default {
-  // data: function() {
-    // return {
-    //   isOpen: false,
-    // }
-  // },
+
   components: {
     Logo,
     Nav

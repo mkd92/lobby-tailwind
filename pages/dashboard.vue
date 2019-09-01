@@ -7,7 +7,7 @@
         <div>
           <logo />
           <h1 class="title mt-10">
-            A PROPERTY MANAGEMENT TOOL
+            You are a admin now
           </h1>
           <h2 class="subtitle">
             mkd92's hobby project
