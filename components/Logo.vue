@@ -1,0 +1,23 @@
+<template>
+<div class="flex has-center justify-center content-end">
+  <div class="logo mt-4 mr-4">
+    <svg class="max-h-full max-w-full " xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#" xmlns="http://www.w3.org/2000/svg" height="227.28mm" width="113.39mm" version="1.1" xmlns:cc="http://creativecommons.org/ns#" xmlns:dc="http://purl.org/dc/elements/1.1/" viewBox="0 0 113.39362 227.28198">
+      <g style="image-rendering:auto" transform="matrix(2.3183 0 0 2.3183 -337.38 -326.56)">
+        <path d="m150.82 140.86a5.2917 5.2917 0 0 0 -5.2917 5.2917v18.858a5.2917 5.2917 0 0 0 5.2917 5.2917h11.055a3.287 3.287 0 0 0 3.2871 -3.2871v-3.3967a3.287 3.287 0 0 1 3.2871 -3.2871h6.7272v35.873a3.287 3.287 0 0 0 3.2871 3.2871h10.643a5.2917 5.2917 0 0 0 5.2917 -5.2917v-33.868h0.0424v-14.015a5.2917 5.2917 0 0 0 -5.2917 -5.2917h-24v-0.16382zm0.0424 39.408a5.2917 5.2917 0 0 0 -5.2917 5.2917v33.868h-0.0424v14.015a5.2917 5.2917 0 0 0 5.2917 5.2917h23.987v0.16381h14.342a5.2917 5.2917 0 0 0 5.2917 -5.2917v-18.858a5.2917 5.2917 0 0 0 -5.2917 -5.2917h-11.06a3.287 3.287 0 0 0 -3.2871 3.2871v3.3967a3.287 3.287 0 0 1 -3.2871 3.2871h-6.7272v-35.873a3.287 3.287 0 0 0 -3.2871 -3.2871z"/>
+      </g>
+    </svg>
+  </div>
+  <span class=" inline-block font-bold align-baseline company h-32 max-w-full">LOBBY</span>
+</div>
+</template>
+
+<style lang="scss" scoped>
+.company {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 100px;
+}
+.logo{
+  height: 100px;
+  width: 50px
+}
+</style>
