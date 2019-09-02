@@ -4,32 +4,48 @@
             <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
                 <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
                     <h1 class="mb-8 text-3xl text-center">Sign up</h1>
+                    <div>
                     <input 
                         type="text"
                         class="block border border-grey-light w-full p-3 rounded mb-4"
                         name="fullname"
-                        placeholder="Full Name" />
+                        placeholder="Full Name"
+                        v-model="signupData.fullName" />
+                        <p v-if="!nameIsValid">Name is not valid</p>
+                    </div>
 
-                    <input 
+                    <div>
+                        <input 
                         type="text"
                         class="block border border-grey-light w-full p-3 rounded mb-4"
                         name="email"
-                        placeholder="Email" />
+                        placeholder="Email"
+                        v-model="signupData.email" />
+                        <p v-if="!emailIsValid">E-mail is not valid</p>
+                    </div>
 
+                    <div>
                     <input 
                         type="password"
                         class="block border border-grey-light w-full p-3 rounded mb-4"
                         name="password"
-                        placeholder="Password" />
+                        placeholder="Password" 
+                        v-model="signupData.password"/>
+                        <p v-if="!passwordIsValid">Password is not valid</p>
+                    </div>
+                    <div>
                     <input 
                         type="password"
                         class="block border border-grey-light w-full p-3 rounded mb-4"
                         name="confirm_password"
-                        placeholder="Confirm Password" />
+                        placeholder="Confirm Password" 
+                        v-model="signupData.confirmPassword"/>
+                    </div>
 
                     
                     <button
-                        type="submit"
+                        @click="onSignup"
+                        type="button"
                         class="w-full text-center py-3 rounded bg-green-500 text-white hover:bg-green-dark focus:outline-none my-1"
                     >Create Account</button>
 
@@ -56,8 +72,39 @@
 </template>
 
 <script>
+
 export default {
+    data() {
+        return {
+            emailIsValid: 'true',
+            passwordIsValid: 'true',
+            formIsValid: 'true',
+            nameIsValid: 'true',
+
+            signupData:{
+                fullName: '',
+                email: '',
+                password: '',
+                confirmPassword: ''
+            }
+        }
+    },
     methods: {
+        onSignup(){            
+            this.nameIsValid = this.signupData.fullName.length >= 6
+            this.emailIsValid = this.signupData.email.includes("@") && this.signupData.email.includes(".","@")
+            //TODO check .include because if returns true even if . is before @
+            this.passwordIsValid = this.signupData.password === this.signupData.confirmPassword
+            this.formIsValid = this.emailIsValid && this.passwordIsValid
+            if(this.formIsValid){
+
+                console.log('Form Submitted', this.signupData)
+            }
+            else {
+                console.log('poda baadu')
+            }
+            // return fasle
+        },
         homr(){
             this.$router.push({
                 path:'/'

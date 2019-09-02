@@ -26,7 +26,7 @@
 import Logo from '~/components/Logo.vue'
 import Nav from "~/components/Nav"
 export default {
-
+  
   components: {
     Logo,
     Nav
