@@ -2,7 +2,7 @@
 <div @click.self="homr" class="absolute pin-l pin-t h-screen w-full flex items-center justify-center bg-tran">
 <div class="bg-grey-lighter min-h-screen flex flex-col">
             <div class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2">
-                <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+                <form @submit.prevent="onSignup" class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
                     <h1 class="mb-8 text-3xl text-center">Sign up</h1>
                     <div>
                     <input 
@@ -44,10 +44,19 @@
 
                     
                     <button
-                        @click="onSignup"
-                        type="button"
+                        type="submit"
                         class="w-full text-center py-3 rounded bg-green-500 text-white hover:bg-green-dark focus:outline-none my-1"
                     >Create Account</button>
+                    
+                    
+                    <button
+                        @click="test"
+                        type="button"
+                        class="w-full text-center py-3 rounded bg-green-500 text-white hover:bg-green-dark focus:outline-none my-1"
+                    >test</button>
+
+                    <p>hello</p>
+
 
                     <div class="text-center text-sm text-grey-dark mt-4">
                         By signing up, you agree to the 
@@ -64,7 +73,7 @@
                         Log in
                     </a>
                 </div>
-                </div>
+                </form>
 
             </div>
         </div>
@@ -81,7 +90,7 @@ export default {
             formIsValid: 'true',
             nameIsValid: 'true',
 
-            signupData:{
+            signupData: {
                 fullName: '',
                 email: '',
                 password: '',
@@ -89,27 +98,40 @@ export default {
             }
         }
     },
+    computed: {
+        user (){
+            return this.$store.getters.user
+        }
+    },
+    watch: {
+        user (value) {
+            if(value !== null && value !== undefined)[
+                this.$router.push({path:'/'})
+            ]
+        }
+    },
     methods: {
         onSignup(){            
             this.nameIsValid = this.signupData.fullName.length >= 6
             this.emailIsValid = this.signupData.email.includes("@") && this.signupData.email.includes(".","@")
             //TODO check .include because if returns true even if . is before @
-            this.passwordIsValid = this.signupData.password === this.signupData.confirmPassword
+            this.passwordIsValid = (this.signupData.password === this.signupData.confirmPassword) && (this.signupData.password.length >= 8)
             this.formIsValid = this.emailIsValid && this.passwordIsValid
             if(this.formIsValid){
-
-                console.log('Form Submitted', this.signupData)
+                
+                this.$store.dispatch('signUserUp',{email: this.signupData.email, password: this.signupData.password})
             }
             else {
-                console.log('poda baadu')
+                console.log('error')
             }
-            // return fasle
+            // TODO divide this into methods and computed property
         },
         homr(){
             this.$router.push({
                 path:'/'
             })
-        }
+        },
+        
     },
 }
 </script>
