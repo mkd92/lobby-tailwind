@@ -1,9 +1,11 @@
 <template>
   <div class="">
-
     <div class="flex flex-col">
       <Nav />
-      <div class="container min-h-screen flex justify-center items-center text-center mx-auto bg-blue-100">
+      <div
+        class="container min-h-screen flex justify-center items-center
+        text-center mx-auto bg-blue-100"
+      >
         <div>
           <logo />
           <h1 class="title mt-10">
@@ -19,36 +21,30 @@
 </template>
 
 <script>
+// eslint-disable-next-line
 import Logo from '~/components/Logo.vue'
-import Nav from "~/components/Nav"
+// eslint-disable-next-line
+import Nav from '~/components/Nav'
 
 export default {
   // data: function() {
-    // return {
-    //   isOpen: false,
-    // }
+  // return {
+  //   isOpen: false,
+  // }
   // },
   components: {
     Logo,
-    Nav
+    Nav,
   },
-  computed:{
-    
-  },
-  methods:{
-    
-  }
-}
+  computed: {},
+  methods: {},
+};
 </script>
 
-
 <style lang="scss" scoped>
-
-.overlay{
-background-color: rgba(0, 0, 0, .6);
+.overlay {
+  background-color: rgba(0, 0, 0, 0.6);
 }
-
-
 
 .container {
   margin: 0 auto;

@@ -5,15 +5,11 @@
 </template>
 
 <script>
-export default{
-
-  data: function(){
+export default {
+  data() {
     return {
-data: {
-  
-}
-    }
-  }
-}
-
+      data: {},
+    };
+  },
+};
 </script>
