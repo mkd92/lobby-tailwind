@@ -33,34 +33,58 @@
         >Lobby</span
       >
     </div>
-    <div>
+    <div v-if="!user">
       <nuxt-link to="/signin">
-        <button
+        <a
           class="inline-block company font-semibold text-sm px-4 py-2
           leading-none border rounded text-grey-800 border-gray-800
           hover:border-transparent hover:text-blue-100 hover:bg-gray-800 mt-4
            lg:mt-0"
         >
           Sign in
-        </button>
+        </a>
       </nuxt-link>
       <nuxt-link to="/signup">
-        <button
+        <a
           class="inline-block company font-semibold text-sm px-4 py-2
            leading-none border rounded text-grey-800 border-gray-800
            hover:border-transparent hover:text-blue-100 hover:bg-gray-800
             mt-4 lg:mt-0"
         >
           Sign Up
-        </button>
+        </a>
       </nuxt-link>
+    </div>
+    <div class="flex items-center" v-else>
+      <nuxt-link to="/dashboard">
+        <a
+          class="inline-block company font-semibold text-sm px-4 py-2
+           leading-none border rounded text-grey-800 border-gray-800
+           hover:border-transparent hover:text-blue-100 hover:bg-gray-800
+            mt-4 lg:mt-0"
+        >
+          Dashboard
+        </a>
+      </nuxt-link>
+      <LoggedInAvatar />
     </div>
   </nav>
 </template>
 <script>
+/* eslint-disable */
+import { mapState } from 'vuex'
+import LoggedInAvatar from '~/components/LoggedInAvatar'
 export default {
+  components: {
+    LoggedInAvatar
+  },
   data: () => ({}),
-};
+  computed: {
+    ...mapState({
+      user: (state) => state.signup.user.uid
+    })
+  }
+}
 </script>
 <style lang="scss" scoped>
 .company {

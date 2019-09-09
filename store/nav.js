@@ -1,9 +1,7 @@
 /* eslint-disable */
 import * as firebase from 'firebase'
 
-const state = () => ({
-  navBar: null
-})
+const state = () => ({})
 export default {
   state
 }

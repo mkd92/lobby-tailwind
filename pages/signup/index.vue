@@ -111,7 +111,7 @@ export default {
   },
   computed: {
     ...mapState({
-      user: (state) => state.signup.user.email
+      user: (state) => state.signup.user.uid
     })
   },
   watch: {

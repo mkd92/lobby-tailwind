@@ -7,10 +7,14 @@
       <div
         class="container max-w-sm mx-auto flex-1 flex flex-col items-center justify-center px-2"
       >
-        <div class="bg-white px-6 py-8 rounded shadow-md text-black w-full">
+        <form
+          @submit.prevent="onSignin"
+          class="bg-white px-6 py-8 rounded shadow-md text-black w-full"
+        >
           <h1 class="mb-8 text-3xl text-center">Sign in</h1>
 
           <input
+            v-model="signinData.email"
             type="text"
             class="block border border-grey-light w-full p-3 rounded mb-4"
             name="email"
@@ -18,6 +22,7 @@
           />
 
           <input
+            v-model="signinData.password"
             type="password"
             class="block border border-grey-light w-full p-3 rounded mb-4"
             name="password"
@@ -65,22 +70,59 @@
               Forgot Password?
             </a>
           </div>
-        </div>
+        </form>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+/* eslint-disable */
+import * as firebase from 'firebase'
+import { mapState } from 'vuex'
 export default {
+  data() {
+    return {
+      emailIsValid: 'true',
+      formIsValid: 'true',
+      signinData: {
+        email: '',
+        password: ''
+      }
+    }
+  },
+  computed: {
+    ...mapState({
+      user: (state) => state.signup.user.uid
+    })
+  },
+  watch: {
+    user(value) {
+      if (value !== null && value !== undefined) this.$router.push('/')
+    }
+  },
   methods: {
+    onSignin() {
+      this.emailIsValid =
+        this.signinData.email.includes('@') &&
+        this.signinData.email.includes('.', '@')
+      this.formIsValid = this.emailIsValid
+      if (this.formIsValid) {
+        this.$store.dispatch('signup/signUserIn', {
+          email: this.signinData.email,
+          password: this.signinData.password
+        })
+      } else {
+        console.log('error')
+      }
+    },
     homr() {
       this.$router.push({
-        path: '/',
-      });
-    },
-  },
-};
+        path: '/'
+      })
+    }
+  }
+}
 </script>
 
 <style lang="scss" scoped>
